@@ -105,7 +105,7 @@
     <section id="hero" class="hero">
       <div class="container">
         <div
-          class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start"
+          class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start hero-text"
         >
           <h2>Dobrodošli u <span>VITO</span></h2>
           <p>
@@ -113,17 +113,15 @@
             željama.
           </p>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started">Rezervišite termin</a>
-            <a
-              href="#services"
-              class="btn-watch-video d-flex align-items-center"
+            <a href="#contact" class="btn-get-started">Rezervišite termin</a>
+            <a href="#contact" class="btn-watch-video d-flex align-items-center"
               ><i class="bi bi-x-circle"></i><span>Otkažite termin</span></a
             >
           </div>
         </div>
         <img
           src="assets/img/hero-img.png"
-          class="img-fluid"
+          class="img-fluid hero-img"
           alt=""
           data-aos="zoom-out"
           data-aos-delay="100"
@@ -262,16 +260,6 @@
         </div>
       </section>
       <!-- End Stats Counter Section -->
-
-      <!-- ======= Our Services Section ======= -->
-      <section id="services" class="services sections-bg">
-        <div class="container" data-aos="fade-up">
-          <div class="section-header">
-            <h2 class="section-title">Naše Usluge</h2>
-          </div>
-        </div>
-      </section>
-      <!-- End Our Services Section -->
 
       <!-- ======= Portfolio Section ======= -->
       <section id="portfolio" class="portfolio">
@@ -559,7 +547,7 @@
       <section id="contact" class="contact">
         <div class="container" data-aos="fade-up">
           <div class="section-header">
-            <h2 class="section-title">Kontakt</h2>
+            <h2 class="section-title">Rezervacija</h2>
           </div>
 
           <div class="row gx-lg-0 gy-4">
@@ -607,12 +595,7 @@
             </div>
 
             <div class="col-lg-8">
-              <form
-                action="forms/contact.php"
-                method="post"
-                role="form"
-                class="php-email-form"
-              >
+              <form class="php-email-form">
                 <div class="row">
                   <div class="col-md-6 form-group">
                     <input
@@ -620,7 +603,7 @@
                       name="name"
                       class="form-control"
                       id="name"
-                      placeholder="Vaše Ime"
+                      placeholder="Ime i Prezime"
                       required
                     />
                   </div>
@@ -630,7 +613,7 @@
                       class="form-control"
                       name="email"
                       id="email"
-                      placeholder="Vaš Email"
+                      placeholder="Email"
                       required
                     />
                   </div>
@@ -640,29 +623,37 @@
                     type="text"
                     class="form-control"
                     name="subject"
-                    id="subject"
-                    placeholder="Tema"
+                    id="phone"
+                    placeholder="Broj Telefona"
                     required
                   />
                 </div>
                 <div class="form-group mt-3">
-                  <textarea
-                    class="form-control"
-                    name="message"
-                    rows="9"
-                    placeholder="Poruka"
-                    required
-                  ></textarea>
+                  <select class="form-control" id="service">
+                    <option>Klasicno sisanje - 1300 din</option>
+                    <option>Vojnicko sisanje - 700 din</option>
+                    <option>Sisanje duge kose - 1400 din</option>
+                    <option>Brijanje glave - 1000 din</option>
+                    <option>Skin fejd - 1400 din</option>
+                    <option>Brijanje - 1100 din</option>
+                    <option>Sredjivanje brade - 800 din</option>
+                    <option>Brijanje toplim peskirom - 1600 din</option>
+                  </select>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="date" class="form-control" id="date" />
                 </div>
                 <div class="my-3">
                   <div class="loading">Ucitavanje...</div>
-                  <div class="error-message"></div>
+                  <div class="error-message">
+                    Termin je vec zauzet, izaberite drugi.
+                  </div>
                   <div class="sent-message">
-                    Vaša poruka je poslata, hvala Vam!
+                    Vaš termin je zakazan, hvala Vam!
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="submit">Pošalji poruku</button>
+                  <button type="submit" id="submit">Pošalji poruku</button>
                 </div>
               </form>
             </div>
@@ -752,9 +743,11 @@
     <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
 
     <!-- Template Main JS File -->
+    <script src="assets/js/data-base.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

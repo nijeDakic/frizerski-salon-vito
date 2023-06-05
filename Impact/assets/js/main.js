@@ -291,16 +291,50 @@ document.addEventListener('DOMContentLoaded', () => {
     aos_init();
   });
 
-
-  window.addEventListener(
-    "scroll",
-    () => {
-      if(document.querySelector("#stats-counter").getBoundingClientRect().top <= window.innerHeight) 
-        document.body.style.setProperty("--scroll", 0);
-      if(document.querySelector("#stats-counter").getBoundingClientRect().top <= window.innerHeight / 2)
-        document.body.style.setProperty("--scroll", 1);
-    },
-    false
-  );
-
 });
+
+/**
+*** Scissors animation
+**/
+
+const tl = gsap.timeline();
+
+tl.from(".scissors-container", {
+  x: "-100%", 
+  opacity: 0, 
+  duration: 1,
+});
+
+ScrollTrigger.create({
+  animation: tl,
+  trigger: ".stats-counter",
+  start: "top 80%",
+  end: "top 20%",
+  scrub: true,
+});
+
+/**
+*** Get data from contact form
+**/
+class Appointment {
+  constructor() {
+    this.nameInput = document.getElementById("name");
+    this.emailInput = document.getElementById("email");
+    this.phoneInput = document.getElementById("phone");
+    this.serviceInput = document.getElementById("service");
+    this.dateInput = document.getElementById("date");
+
+    this.submitButton = document.getElementById("submit");
+    this.submitButton.addEventListener("click", this.getData());
+  }
+  
+  getData() {
+    var name = this.nameInput.value;
+    var email = this.emailInput.value;
+    var phone = this.phoneInput.value;
+    var service = this.serviceInput.value;
+    var date = this.dateInput.value;
+
+    console.log(name, email);
+  }
+}
